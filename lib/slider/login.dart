@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:styles_login/widgets/my_app_bar.dart';
+import 'package:styles_login/widgets/my_floating_button.dart';
 
-class Login2 extends StatefulWidget {
-  const Login2({super.key});
+class LoginSlider extends StatefulWidget {
+  const LoginSlider({super.key});
 
   @override
-  State<Login2> createState() => _Login2State();
+  State<LoginSlider> createState() => _LoginSliderState();
 }
 
-class _Login2State extends State<Login2> with SingleTickerProviderStateMixin {
+class _LoginSliderState extends State<LoginSlider>
+    with SingleTickerProviderStateMixin {
   final Color colorCard = Colors.white;
   final Color colorCardBackgroud = const Color(0xFFC79CD9);
   final Color colorText = const Color.fromARGB(255, 125, 72, 148);
@@ -36,7 +39,7 @@ class _Login2State extends State<Login2> with SingleTickerProviderStateMixin {
       begin: 0,
       end: 1.0,
     ).animate(animationController!);
-    animationController!.forward();
+    animationController!.forward(from: 1);
   }
 
   @override
@@ -48,6 +51,7 @@ class _Login2State extends State<Login2> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar(context),
       body: Center(
         child: Container(
           alignment: Alignment.center,
@@ -213,6 +217,7 @@ class _Login2State extends State<Login2> with SingleTickerProviderStateMixin {
           ),
         ),
       ),
+      floatingActionButton: floatingButton(),
     );
   }
 
@@ -263,6 +268,7 @@ class _Login2State extends State<Login2> with SingleTickerProviderStateMixin {
       ),
       child: Text(
         buttonText.toUpperCase(),
+        textAlign: TextAlign.center,
         style: TextStyle(color: colorCard),
       ),
     );

@@ -1,19 +1,21 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:styles_login/widgets/my_app_bar.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
-class Login extends StatefulWidget {
+class LoginGame extends StatefulWidget {
   final Color colorBackground = const Color(0xFF23242a);
   final Color colorCard = const Color(0xFF1c1c1c);
   final Color primaryColor = const Color(0xFF45F3FF);
-  const Login({super.key});
+  const LoginGame({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginGame> createState() => _LoginGameState();
 }
 
-class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
+class _LoginGameState extends State<LoginGame>
+    with SingleTickerProviderStateMixin {
   Animation? animation;
   AnimationController? animationController;
   IntTween? intTween;
@@ -41,6 +43,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar(context, colorArrowBack: Colors.white),
       backgroundColor: widget.colorBackground,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
